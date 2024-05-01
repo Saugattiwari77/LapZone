@@ -1,0 +1,61 @@
+@charset "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    font-family:"Roboto", sans-serif;
+}
+.head-div{
+    margin-bottom: 100px;
+    width:80vw;
+    height: 900px;
+    /* border: 2px  solid #3c97ad; */
+    margin-left: 150px;
+    padding-top: 50px;
+    box-shadow:0px 4px 44px rgba(0, 0, 0, 0.12);
+}
+.head-div:hover{
+    box-shadow:0px 4px 44px rgba(167, 27, 27, 0.527);
+}
+
+.pic-div{
+    text-align:center;
+}
+.desc-div{
+    text-align: center;
+    margin-top: 50px;
+}
+.desc-div h2{
+    font-size:40px ;
+}
+.desc-div h3{
+    font-size:40px ;
+    font-weight: lighter;
+    
+    color:orange;
+}
+.desc-div p{
+    font-size: 20px;
+    width:70vw;
+    margin-left: 100px;
+}
+.twoa{
+    text-align: center;
+    margin-top: 50px;
+    /* padding: 10px; */
+    
+}
+.twoa a{
+    padding: 15px 100px;
+    background-color: green;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    
+
+}
+#bn{
+    background-color: orange;
+    margin-right: 10px;
+}

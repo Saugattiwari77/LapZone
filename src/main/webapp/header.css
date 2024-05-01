@@ -1,0 +1,129 @@
+@charset "ISO-8859-1";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: Poppins; */
+}
+a{
+	text-decoration:none;
+	
+	
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 95%; */
+}
+.nav-part{
+    display:flex;
+    justify-content: space-between;
+    height:15vh;
+    width:100%;
+    background-color:antiquewhite;
+    padding-left: 100px;
+    padding-top: 30px;
+    color:white;
+    background-color: rgba(0, 0, 0, 0.87);
+}
+#leftsh h1 a{
+	color:white;
+}
+
+#middlesh{
+/* margin-left: -50px; */
+}
+
+ #middlesh input[type="text"] {
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #ccc;
+    border-right: none;
+    width: 600px;
+    font-size: 16px; 
+}
+
+#middlesh button[type="submit"] {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 16px; 
+}
+
+#middlesh button[type="submit"]:hover {
+    background-color: #ddd;
+}
+.rightsh{
+    display: flex;
+    justify-content: space-between;
+    /* padding-left: 100px; */
+    margin-right: 100px;
+    font-size: 20px;
+    margin-top: 10px;
+
+}
+#userf a{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    text-decoration: none;
+    /* padding-left: 20px; */
+    /* flex-wrap: wrap; */
+
+}
+#userf:hover{
+    cursor: pointer;
+}
+#lsc a {
+    color: white;
+    text-decoration: none;
+}
+#ln{
+    margin-left: 7px;
+}
+#lsc{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    /* padding-right: 100px; */
+}
+
+    
+
+#sup{
+    margin-left: 20px;
+    /* margin-right: 20px; */
+}
+#sup:hover{
+    cursor: pointer;
+}
+#lsc i{
+    margin-left: 25px;  
+    margin-right: 20px;
+}
+#tcont{
+    height: 5vh;
+    width: 100%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.705);
+    }
+    #tcont ul{
+        display: flex;
+        /* justify-content: space-between; */
+        margin-left: 400px;
+        list-style-type: none;
+        
+    }
+    #tcont ul li{
+        padding-left: 100px;
+        margin-top: 5px;
+    }
+    #tcont li a{
+        text-decoration: none;
+        color: white;
+        
+        font-size: 20px;
+    }
