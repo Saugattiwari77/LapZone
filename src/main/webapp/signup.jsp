@@ -57,9 +57,9 @@
                     
                             <label>Gender</label><br>
                             <select class="stxt" name="gender" required>
-                                <option value="zero" selected>Male</option>
-                                <option value="one">Female</option>
-                                <option value="two">Others</option>
+                                <option value="Male" selected>Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Others">Others</option>
                             </select>
                             </div>
                 </div>

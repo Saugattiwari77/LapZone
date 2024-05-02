@@ -8,13 +8,15 @@
 
 <% 
 ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+
     List<Cart> cartProduct = null;
     if(cart_list != null){
+    	
     	ProductDao pDao = new ProductDao(DBCon.getConnection());
     	cartProduct = pDao.getCartProducts(cart_list);
-    	
+    	double total = pDao.getTotalCartPrice(cart_list);
     	request.setAttribute("cart_list", cart_list);
-    	
+    	request.setAttribute("total", total);
     }
     %>
 
@@ -28,7 +30,7 @@ ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
 <body>
 <div class="cart-container">
       <div class="cart-header">
-        <h2>Total Price: Rs</h2>
+        <span>Total Price: Rs ${ total }</span>
         <button class="checkout-btn">Check Out</button>
       </div>
       <div class="table-header">
@@ -38,32 +40,23 @@ ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
         <p>Cancel</p>
       </div>
       
-     <div class="cart-container">
-    <div class="cart-header">
-        <h2>Total Price: Rs</h2>
-        <button class="checkout-btn">Check Out</button>
-    </div>
-    <div class="table-header">
-        <p>Name</p>
-        <p>Price</p>
-        <p>Buy Now</p>
-        <p>Cancel</p>
-    </div>
+    
     
     <% if(cart_list != null) {
             for(Cart c : cartProduct) { %>
-                <form action="add-to-cart" method="post">
+                <form action="remove-cart" method="get">
                     <div class="product-controls">
                         <input type="hidden" name="id" value="<%= c.getId() %>"> <!-- Include product ID -->
                         <p><%= c.getName() %></p> <!-- Retrieve product name -->
                         <p><%= c.getPrice() %></p> <!-- Retrieve product price -->
                         <div class="form-group">
-                            <button class="btn-decrement">-</button>
-                            <input type="text" class="shopping-input" value="1" />
-                            <button class="btn-increment">+</button>
+                            <button class="btn-decrement" href="product-inc-dec?action=dec&id=<%= c.getId()%>">-</button>
+                            <input type="number" class="shopping-input" value="<%= c.getQuantity() %>" />
+                            <button class="btn-increment" href="product-inc-dec?action=inc&id=<%= c.getId()%>">+</button>
+                            <button class="buy-btn">Buy</button>
                         </div>
-                        <button class="buy-btn">Buy</button>
-                        <button class="remove-btn">Remove</button>
+                        
+                        <button class="remove-btn" href="remove-cart?id=<%= c.getId()%>">Remove</button>
                     </div>
                 </form>
     <%      }

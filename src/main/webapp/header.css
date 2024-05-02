@@ -25,7 +25,7 @@ a{
     padding-left: 100px;
     padding-top: 30px;
     color:white;
-    background-color: rgba(0, 0, 0, 0.87);
+    background-color: rgba(0, 0, 0, 0.87);;
 }
 #leftsh h1 a{
 	color:white;
@@ -38,6 +38,7 @@ a{
  #middlesh input[type="text"] {
     padding: 10px;
     border-radius: 5px 0 0 5px;
+    color:black;
     border: 1px solid #ccc;
     border-right: none;
     width: 600px;
@@ -127,3 +128,23 @@ a{
         
         font-size: 20px;
     }
+    /* Styles for the badge */
+.badge {
+ 
+  
+  font-size: 10px;
+  
+  font-weight: bold;
+  padding:3px 5px;
+  border-radius:4px;
+  color: black; /* Text color */
+  background-color:white;
+  margin-bottom:4px;
+  position:absolute;
+  top:-5px;
+  
+}
+#cart{
+	position:relative;
+}
+

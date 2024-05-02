@@ -1,5 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="controller.Dao.ProductDao" %>
+<%@page import="java.util.*" %>
+<%@page import="controller.connection.DBCon"%>
+<%@page import="controller.model.*"%>
+    <% 
+ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+
+    List<Cart> cartProduct = null;
+    if(cart_list != null){
+    	
+    	ProductDao pDao = new ProductDao(DBCon.getConnection());
+    	cartProduct = pDao.getCartProducts(cart_list);
+    	
+    	request.setAttribute("cart_list", cart_list);
+    	
+    }
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +52,7 @@
                         <p id="sup">Sign up</p>
                     </a>
                     <a href="cart.jsp">
-                    <i class="fa-solid fa-cart-shopping" ></i>
+                    <i class="fa-solid fa-cart-shopping" id="cart" ><span class="badge">${ cart_list.size()}</span></i>
                     </a>
                 </div>
             </div>
