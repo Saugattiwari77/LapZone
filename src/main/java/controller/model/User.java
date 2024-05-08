@@ -1,6 +1,7 @@
 package controller.model;
 
 public class User {
+	private int id;
 	private String fullname;
 	private String phonenumber;
 	private String email;
@@ -14,8 +15,8 @@ public class User {
 		
 	}
 
-	public User(String fullname,String phonenumber, String email, String username, String password, String dateofbirth, String gender) {
-		
+	public User( int id, String fullname,String phonenumber, String email, String username, String password, String dateofbirth, String gender) {
+		this.id = id;
 		this.fullname = fullname;
 		this.phonenumber = phonenumber;
 		this.email = email;
@@ -26,6 +27,18 @@ public class User {
 		this.gender = gender;
 	}
 
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	
+	
+	
 	public String getFullName() {
 		return fullname;
 	}

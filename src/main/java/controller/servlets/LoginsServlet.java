@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import controller.connection.DBCon;
 import controller.Dao.UserDao;
@@ -33,10 +34,9 @@ public class LoginsServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("sdf");
+		
 		response.setContentType("text/html;charset=UTF-8");
 		try (PrintWriter out = response.getWriter()) {
-			
 			String username = request.getParameter("login-username");
 			String password = request.getParameter("login-password");
 
@@ -44,10 +44,12 @@ public class LoginsServlet extends HttpServlet {
 				UserDao udao = new UserDao(DBCon.getConnection());
 
 				User user = udao.userLogin(username, password);
-
+System.out.println(user.getFullName());
 				if (user != null) {
 					
 					request.getSession().setAttribute("auth", user);
+					
+
 					response.sendRedirect("index.jsp");
 
 				} else {
@@ -63,4 +65,5 @@ public class LoginsServlet extends HttpServlet {
 
 		}
 	}
+
 }

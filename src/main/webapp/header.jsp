@@ -1,19 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@page import="controller.Dao.ProductDao" %>
+     <%@page import="controller.Dao.UserDao" %>
 <%@page import="java.util.*" %>
 <%@page import="controller.connection.DBCon"%>
 <%@page import="controller.model.*"%>
     <% 
-ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+   
+  
+    
+    
+    
+ArrayList<Cart> headercart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
 
-    List<Cart> cartProduct = null;
-    if(cart_list != null){
+    List<Cart> headerCartProduct = null;
+    if(headercart_list != null){
     	
     	ProductDao pDao = new ProductDao(DBCon.getConnection());
-    	cartProduct = pDao.getCartProducts(cart_list);
+    	headerCartProduct = pDao.getCartProducts(headercart_list);
     	
-    	request.setAttribute("cart_list", cart_list);
+    	request.setAttribute("cart_list", headercart_list);
     	
     }
     %>
@@ -41,7 +47,29 @@ ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
             </div>
 
             <div class="rightsh">
+            <%
+            User auth = (User)session.getAttribute("auth");
+
+            if(auth != null){
+            	
+            
+            %>
                 <div id="userf">
+                    <a href="login.jsp">
+                        <i class="fa-regular fa-user" ></i>
+                        <p id="ln">Log Out</p>
+                    </a>
+                </div>
+                <div id="lsc">
+                    hello
+                    <a href="cart.jsp">
+                    <i class="fa-solid fa-cart-shopping" id="cart" ><span class="badge">${ cart_list.size()}</span></i>
+                    </a>
+                </div>
+                <% }else{
+                	
+                	%>
+                	<div id="userf">
                     <a href="login.jsp">
                         <i class="fa-regular fa-user" ></i>
                         <p id="ln">Login</p>
@@ -51,10 +79,10 @@ ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
                     <a href="signup.jsp">
                         <p id="sup">Sign up</p>
                     </a>
-                    <a href="cart.jsp">
-                    <i class="fa-solid fa-cart-shopping" id="cart" ><span class="badge">${ cart_list.size()}</span></i>
-                    </a>
+                    
                 </div>
+               <%  }%>
+                
             </div>
         </div>
         <div id="tcont">

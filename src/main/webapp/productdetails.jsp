@@ -46,7 +46,7 @@ int pid = Integer.parseInt(parts[1]);
           </p>
         </div>
         <div class="twoa">
-          <a id="bn" href="">Buy Now</a>
+          <a id="bn" href="order-now?id=<%= products.getId()%>&quantity=1">Buy Now</a>
           <a id="atc" href="add-to-cart?id=<%= products.getId()%>">Add To Cart</a>
         </div>
       </div>

@@ -10,6 +10,7 @@ import java.util.List;
 import controller.model.Cart;
 import controller.model.Product;
 import controller.model.User;
+import controller.Dao.ProductDao;
 
 public class ProductDao {
 private static Connection con;
@@ -135,50 +136,60 @@ private static Connection con;
     
     
     
+    public boolean insertProduct(Product product) {
+        try {
+            String query = "INSERT INTO product (name, price, description, image) VALUES (?, ?, ?, ?)";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1, product.getName());
+            pst.setDouble(2, product.getPrice());
+            pst.setString(3, product.getDescription());
+            pst.setString(4, product.getImage());
+            int rowsInserted = pst.executeUpdate();
+            return rowsInserted > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateProduct(Product product) {
+        try {
+            String query = "UPDATE product SET name=?, price=?, description=?, image=? WHERE id=?";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1, product.getName());
+            pst.setDouble(2, product.getPrice());
+            pst.setString(3, product.getDescription());
+            pst.setString(4, product.getImage());
+            pst.setInt(5, product.getId());
+            int rowsUpdated = pst.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean deleteProduct(int productId) {
+        try {
+            String query = "DELETE FROM product WHERE id=?";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setInt(1, productId);
+            int rowsDeleted = pst.executeUpdate();
+            return rowsDeleted > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
+
+   
+   
+
+   
     
     
     
